@@ -1,0 +1,6 @@
+{
+  "name": "CI — Python",
+  "description": "Checkout, install, lint with ruff, and test with pytest.",
+  "iconName": "python",
+  "categories": ["Python"]
+}

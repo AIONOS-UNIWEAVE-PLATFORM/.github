@@ -1,0 +1,6 @@
+{
+  "name": "CI — Node.js",
+  "description": "Checkout, install, lint, test, and build a Node.js project.",
+  "iconName": "nodejs",
+  "categories": ["Node.js"]
+}
