@@ -50,13 +50,13 @@ graph TB
 
 | What | Status | Owner | Target |
 |---|---|---|---|
-| Chat Engine (#94) | In Progress (0/12) | Nomaan | Mar 14 |
-| IntelliPulse post-call webhook (#96) | In Progress | Upender | Mar 9 |
+| Chat Engine (#94) | In Progress (0?/12) | Nomaan | Mar 14 |
+| IntelliPulse post-call webhook (#96) | In Progress | Upender | Mar 10 |
 | IntelliRAG backend (#98) | In Progress (3/11) | Himanshu | Mar 10 |
 | WABA provisioning (#108) | Ready to Build | Ravinder | Mar 9 |
 | Unified auth/SSO (#120) | In Progress | Himanshu + Upender | TBD |
-| AI Gateway (#112) | **Done** | — | — |
-| UniScript (#118) | In Progress | Agam | — |
+| AI Gateway (#112) | **Done** | Agam | Mar 6 |
+| UniScript (#118) | In Progress | Agam | Mar 11 |
 
 **Key decision**: UniWeave is the master for auth and RBAC. All services (IntelliRAG, IntelliPulse, future modules) inherit via a global auth table. No service maintains its own user management.
 
