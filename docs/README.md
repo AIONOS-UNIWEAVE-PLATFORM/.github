@@ -8,9 +8,7 @@ Team knowledge base. Start here.
 
 ## Current Status
 
-| Doc | What it covers |
-|---|---|
-| **[STATUS.md](STATUS.md)** | **Live engineering status — what's in progress, blockers, critical gaps, Monday actions. Updated weekly.** |
+**See the [org profile page](https://github.com/AIONOS-UNIWEAVE-PLATFORM)** for live sprint snapshot, board state, critical gaps, and engineering notes.
 
 ---
 
