@@ -46,7 +46,7 @@ graph TB
 
 ## Current sprint snapshot
 
-**Last updated**: March 7, 2026
+**Last updated**: March 8, 2026
 
 > **Phase shift**: Individual features are built or near-complete. The next major milestone is **integration + first unified Azure deployment** — merging all work, fixing production gaps, deploying as one platform, and setting up CI/CD.
 
@@ -54,11 +54,11 @@ graph TB
 
 | What | Owner | Due | Progress | Notes |
 |---|---|---|---|---|
-| Chat Engine (#94) | Nomaan | Mar 14 | **8/12** | Major progress — confirm remaining 4 items Monday |
-| IntelliPulse post-call webhook (#96) | Upender | Mar 10 | **Functionally complete** | Cron-based approach built + tested locally. Blocked on Java routing (#122). Monday: demo + review. |
-| IntelliRAG backend (#98) | Himanshu | Mar 10 | **11/11 — likely Done** | Checklist complete. v0.1 built. Review Monday. |
+| Chat Engine (#94) | Nomaan | Mar 14 | **8/12** | Major progress — confirm remaining 4 items |
+| IntelliPulse post-call webhook (#96) | Upender | Mar 10 | **4/8** | Mode B (audio URL) built + tested locally. Blocked on Java routing (#122 — RTB, Upender+Harsh, due Mar 10). |
+| IntelliRAG backend (#98) | Himanshu | Mar 10 | **11/11 ✅** | All done — pending Himanshu review to move to Done. |
 | Unified auth/SSO (#120) | Himanshu + Upender | Mar 12 | 0/5 | Waiting on Pramod (external) for global DB |
-| UniScript (#118) | Agam | — | **9/10 features** | 149 tests passing. Remaining: Portal (admin+dev views, templates CRUD). |
+| UniScript (#118) | Agam | — | **10/10 features built** | 155 tests passing. Portal testing. F11 (tool support) spec done, dev starting. |
 
 ### Next Phase: Integration + Deployment
 
@@ -73,17 +73,17 @@ All features above have been built individually. What's next:
 
 | What | Owner | Due | Blocker |
 |---|---|---|---|
+| Java routing fixes (#122) | Upender + Harsh | Mar 10 | Blocking #96 end-to-end. **2 days to deadline.** |
+| WABA provisioning (#108) | Ravinder | Mar 10 | Coordinating off-Trello. Blocks #95 + #113. **2 days to deadline.** |
+| PRISM Hotels (#113) | **TBD — unassigned** | Mar 10 | Depends on #94 + #95 + #108. Unassigned + 2 days. |
+| Pulse enrichment (#97) | **TBD — unassigned** | Mar 14 | Blocked by #96. Unassigned. |
 | WhatsApp connector (#95) | Nomaan | Mar 19 | WABA not provisioned (#108) |
-| Pulse enrichment (#97) | **TBD** | Mar 14 | Blocked by #96 |
-| IntelliRAG config UI (#99) | **TBD** | — | Needs #98 review + wireframes |
-| Arabic greeting bug (#104) | **TBD** | — | Unassigned |
-| WABA provisioning (#108) | Ravinder | Mar 10 | Coordinating — not on Trello. **3 days to deadline.** |
-| PRISM Hotels (#113) | **TBD** | Mar 10 | Depends on #94 + #95 + #108 |
-| Java routing fixes (#122) | Upender + Himanshu | Mar 10 | Blocks #96 |
+| IntelliRAG config UI (#99) | **TBD — unassigned** | — | Needs #98 review + Agam wireframes |
+| Arabic greeting bug (#104) | **TBD — unassigned** | — | Persistent. Unassigned. |
 
 ### Critical Production Gaps (must fix before integration deploy)
 
-Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday (Day 3+).**
+Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh immediately.**
 
 1. **TOOL_BASE_URL broken in Helm** — livekit-agent config sets `TOOL_BASE_URL: "https://"`. All HTTP tool calls fail silently in prod.
 2. **Helm secrets in plaintext** — API keys, passwords, tokens in `values.yaml` committed to repo.
@@ -100,14 +100,14 @@ Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday (Day 3+
 
 ## Engineering notes
 
-- **IntelliPulse integration**: Upender built cron-based approach (ingestion every 10 min + processing cron). Add force-refresh trigger alongside cron for immediate post-call flush.
-- **UniScript**: FastAPI + PostgreSQL + Redis. AI Gateway integrated via typed Python client (llm-core). MCP server with 10 tools, dual transport (HTTP + STDIO). Product telemetry with OpenTelemetry (12 counters + 5 histograms).
-- **IntelliRAG**: Exposed as MCP server — agents consume via MCP, same as any other tool. Sets precedent for all future capabilities.
+- **IntelliPulse integration**: Mode B (audio URL to Pulse) built + tested locally — cron every 10 min + manual trigger endpoints. Mode A (transcript passthrough) + call-end event trigger still pending. #122 (Java routing) must land before #96 can be tested in any deployed environment.
+- **UniScript**: 10/10 features built. FastAPI + PostgreSQL + Redis. AI Gateway integrated. MCP server (10 tools, dual transport). 155 tests passing. Portal built + testing. F11 (tool support) spec done, dev starting. **Repo: [uniscript](https://github.com/AIONOS-UNIWEAVE-PLATFORM/uniscript)** (renamed from voice-prompt-builder).
+- **IntelliRAG**: Exposed as MCP server — agents consume via MCP, same as any other tool. 11/11 checklist complete — v0.1 built by Himanshu. Pending review to move to Done. Auth (#120) blocked on Pramod (external).
 
 ## Upcoming
 
-- **CX Ops floor session** — March 9. Required for roadmap finalization.
-- **Monday actions**: (1) Escalate 3 Helm gaps to Harsh. (2) Demo #96 with Upender. (3) Review #98 with Himanshu — likely Done. (4) Confirm #94 remaining 4 items with Nomaan. (5) Follow Pramod on global DB for #120. (6) Coordinate Ravinder on WABA (#108, due Mar 10).
+- **CX Ops floor session** — March 9 (tomorrow). Required for roadmap finalization.
+- **Monday actions**: (1) Escalate 3 Helm gaps to Harsh — still not communicated. (2) Demo #96 with Upender — cron vs event trigger, force-refresh. (3) Move #98 to Done after Himanshu confirms deployable. (4) Confirm #94 remaining 4 items with Nomaan. (5) Follow Pramod on global DB for #120. (6) Coordinate Ravinder on WABA (#108, due Mar 10 — 2 days). (7) Assign owner for #97/#113/#104.
 
 ---
 
@@ -116,7 +116,7 @@ Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday (Day 3+
 | Repo | What it does | Status |
 |---|---|---|
 | [ai-gateway](https://github.com/AIONOS-UNIWEAVE-PLATFORM/ai-gateway) | LiteLLM proxy — model routing, failover, cost control | **Deployed** (`gateway.uniweave.com`) |
-| [voice-prompt-builder](https://github.com/AIONOS-UNIWEAVE-PLATFORM/voice-prompt-builder) | UniScript — voice AI prompt engineering service | **9/10 features done** (149 tests) |
+| [uniscript](https://github.com/AIONOS-UNIWEAVE-PLATFORM/uniscript) | UniScript — voice AI prompt engineering service | **10/10 features built** (155 tests). Tool support (F11) in build. |
 | More repos transferring soon | Core platform, analytics, user management | Pending engineer onboarding |
 
 ---
