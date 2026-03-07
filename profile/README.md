@@ -48,15 +48,26 @@ graph TB
 
 **Last updated**: March 7, 2026
 
+> **Phase shift**: Individual features are built or near-complete. The next major milestone is **integration + first unified Azure deployment** — merging all work, fixing production gaps, deploying as one platform, and setting up CI/CD.
+
 ### In Progress
 
 | What | Owner | Due | Progress | Notes |
 |---|---|---|---|---|
 | Chat Engine (#94) | Nomaan | Mar 14 | **8/12** | Major progress — confirm remaining 4 items Monday |
-| IntelliPulse post-call webhook (#96) | Upender | Mar 10 | Functionally complete | Cron-based approach built + tested locally. Blocked on Java routing (#122). **Monday: demo + review.** |
-| IntelliRAG backend (#98) | Himanshu | Mar 10 | **11/11** | Checklist complete. v0.1 built. Review Monday — likely ready for Done. |
-| Unified auth/SSO (#120) | Himanshu + Upender | Mar 12 | 0/5 | Waiting on Pramod (IntelliRAG engineer) for global DB implementation |
-| UniScript (#118) | Agam | — | **9/10 features done** | 149 tests passing. Complete: one-shot generation, chat/refinement, packs, assembler, auth, credits, AI Gateway, telemetry, MCP server. **Remaining: Portal (admin+dev views, templates CRUD).** |
+| IntelliPulse post-call webhook (#96) | Upender | Mar 10 | **Functionally complete** | Cron-based approach built + tested locally. Blocked on Java routing (#122). Monday: demo + review. |
+| IntelliRAG backend (#98) | Himanshu | Mar 10 | **11/11 — likely Done** | Checklist complete. v0.1 built. Review Monday. |
+| Unified auth/SSO (#120) | Himanshu + Upender | Mar 12 | 0/5 | Waiting on Pramod (external) for global DB |
+| UniScript (#118) | Agam | — | **9/10 features** | 149 tests passing. Remaining: Portal (admin+dev views, templates CRUD). |
+
+### Next Phase: Integration + Deployment
+
+All features above have been built individually. What's next:
+
+1. **Merge all feature work** into a deployable state across repos
+2. **Fix 3 Critical Helm gaps** before deploying (see below)
+3. **Fresh Azure deployment** — first time deploying the full integrated platform
+4. **Set up CI/CD** — automated build, test, deploy pipeline for all future changes
 
 ### Ready to Build
 
@@ -70,7 +81,7 @@ graph TB
 | PRISM Hotels (#113) | **TBD** | Mar 10 | Depends on #94 + #95 + #108 |
 | Java routing fixes (#122) | Upender + Himanshu | Mar 10 | Blocks #96 |
 
-### Critical Production Gaps
+### Critical Production Gaps (must fix before integration deploy)
 
 Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday (Day 3+).**
 
