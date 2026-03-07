@@ -6,6 +6,14 @@ Team knowledge base. Start here.
 
 ---
 
+## Current Status
+
+| Doc | What it covers |
+|---|---|
+| **[STATUS.md](STATUS.md)** | **Live engineering status — what's in progress, blockers, critical gaps, Monday actions. Updated weekly.** |
+
+---
+
 ## Platform Reference
 
 | Doc | What it covers |
@@ -25,6 +33,15 @@ Active specs for features in build. Self-contained — read before touching code
 | [IntelliPulse Integration](specs/intellipulse-integration.md) | Upender | In Progress |
 | [IntelliRAG Integration](specs/intellirag-integration.md) | Himanshu | In Progress |
 | [livekit-agent MCP Integration](specs/livekit-agent-mcp-integration.md) | Harsh + Himanshu | Ready to Build |
+
+---
+
+## Strategy
+
+| Doc | What it covers |
+|---|---|
+| [Vision](VISION.md) | April 23 launch targets, product thesis, what ships |
+| [Roadmap](ROADMAP.md) | Two-layer capability roadmap, vertical packages, phasing |
 
 ---
 
