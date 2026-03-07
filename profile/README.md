@@ -53,10 +53,10 @@ graph TB
 | What | Owner | Due | Progress | Notes |
 |---|---|---|---|---|
 | Chat Engine (#94) | Nomaan | Mar 14 | **8/12** | Major progress — confirm remaining 4 items Monday |
-| IntelliPulse post-call webhook (#96) | Upender | Mar 10 | Functionally complete | Cron-based approach built + tested locally. Blocked on Java routing (#122). **Monday: demo + review. Add force-refresh trigger alongside cron.** |
-| IntelliRAG backend (#98) | Himanshu | Mar 10 | **11/11** | Checklist complete. v0.1 built. Review cycle next — may be ready for Done. |
+| IntelliPulse post-call webhook (#96) | Upender | Mar 10 | Functionally complete | Cron-based approach built + tested locally. Blocked on Java routing (#122). **Monday: demo + review.** |
+| IntelliRAG backend (#98) | Himanshu | Mar 10 | **11/11** | Checklist complete. v0.1 built. Review Monday — likely ready for Done. |
 | Unified auth/SSO (#120) | Himanshu + Upender | Mar 12 | 0/5 | Waiting on Pramod (IntelliRAG engineer) for global DB implementation |
-| UniScript (#118) | Agam | — | Planning | — |
+| UniScript (#118) | Agam | — | **9/10 features done** | 149 tests passing. Complete: one-shot generation, chat/refinement, packs, assembler, auth, credits, AI Gateway, telemetry, MCP server. **Remaining: Portal (admin+dev views, templates CRUD).** |
 
 ### Ready to Build
 
@@ -92,7 +92,7 @@ Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday.**
 | Repo | What it does | Status |
 |---|---|---|
 | [ai-gateway](https://github.com/AIONOS-UNIWEAVE-PLATFORM/ai-gateway) | LiteLLM proxy — model routing, failover, cost control | **Deployed** (`gateway.uniweave.com`) |
-| [voice-prompt-builder](https://github.com/AIONOS-UNIWEAVE-PLATFORM/voice-prompt-builder) | UniScript — interactive voice agent prompt builder | In Progress |
+| [voice-prompt-builder](https://github.com/AIONOS-UNIWEAVE-PLATFORM/voice-prompt-builder) | UniScript — voice AI prompt engineering service | **9/10 features done** (149 tests) |
 | More repos transferring soon | Core platform, analytics, user management | Pending engineer onboarding |
 
 ---
