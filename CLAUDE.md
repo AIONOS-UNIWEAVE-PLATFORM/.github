@@ -88,3 +88,37 @@ Polyglot — Java, Node.js, Python all welcome. No forced migrations. Use what's
 ## Trello
 
 Our task board lives in Trello (aionos.ai workspace, UniWeave board). Reference Trello card IDs in PRs and commits when applicable.
+
+## RepoMapper — code exploration
+
+RepoMapper is an MCP server that generates structural code maps using tree-sitter AST parsing and PageRank. It reduces token usage by ~97% compared to reading full source files.
+
+**Setup (one-time per machine):**
+1. Clone to a sibling of your repo:
+   ```
+   git clone https://github.com/pdavis68/RepoMapper.git ../RepoMapper
+   ```
+2. Install deps:
+   ```
+   pip install --user -r ../RepoMapper/requirements.txt
+   ```
+3. Add to your repo's `.mcp.json`:
+   ```json
+   {
+     "mcpServers": {
+       "repomapper": {
+         "type": "stdio",
+         "command": "python",
+         "args": ["<absolute-path-to>/RepoMapper/repomap_server.py"]
+       }
+     }
+   }
+   ```
+   Replace `<absolute-path-to>` with the real path (e.g. `D:/AA/RepoMapper` on Windows, `/home/user/RepoMapper` on Linux/Mac).
+
+**Usage discipline:**
+- Call `repo_map` before reading source files in an unfamiliar codebase
+- Use `search_identifiers` to find specific functions/classes before grepping
+- Only Read specific files after mapping — never speculatively read entire directories
+
+Works on Python 3.12+ (pyproject.toml says 3.13 but 3.12 works fine).
