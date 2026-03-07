@@ -31,6 +31,7 @@ Active specs for features in build. Self-contained — read before touching code
 | [IntelliPulse Integration](specs/intellipulse-integration.md) | Upender | In Progress |
 | [IntelliRAG Integration](specs/intellirag-integration.md) | Himanshu | In Progress |
 | [livekit-agent MCP Integration](specs/livekit-agent-mcp-integration.md) | Harsh + Himanshu | Ready to Build |
+| [Agent Intelligence Dashboard](specs/agent-intelligence-analytics.md) | TBD | Ready to Build |
 
 ---
 
