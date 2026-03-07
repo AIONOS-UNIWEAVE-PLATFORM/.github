@@ -66,13 +66,13 @@ graph TB
 | Pulse enrichment (#97) | **TBD** | Mar 14 | Blocked by #96 |
 | IntelliRAG config UI (#99) | **TBD** | — | Needs #98 review + wireframes |
 | Arabic greeting bug (#104) | **TBD** | — | Unassigned |
-| WABA provisioning (#108) | Ravinder | Mar 10 | Coordinating — not on Trello |
+| WABA provisioning (#108) | Ravinder | Mar 10 | Coordinating — not on Trello. **3 days to deadline.** |
 | PRISM Hotels (#113) | **TBD** | Mar 10 | Depends on #94 + #95 + #108 |
 | Java routing fixes (#122) | Upender + Himanshu | Mar 10 | Blocks #96 |
 
 ### Critical Production Gaps
 
-Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday.**
+Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday (Day 3+).**
 
 1. **TOOL_BASE_URL broken in Helm** — livekit-agent config sets `TOOL_BASE_URL: "https://"`. All HTTP tool calls fail silently in prod.
 2. **Helm secrets in plaintext** — API keys, passwords, tokens in `values.yaml` committed to repo.
@@ -84,6 +84,19 @@ Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday.**
 - **Chat module uses Azure OpenAI** (not Ultravox). Channel-agnostic Chat API.
 - **UniWeave is master for auth/RBAC** — all services inherit orgs + users + roles.
 - **April 23 launch**: 60% already live (Saudia + IndiGo). Net new = Chat Engine, IntelliRAG UI, Pulse integration.
+
+---
+
+## Engineering notes
+
+- **IntelliPulse integration**: Upender built cron-based approach (ingestion every 10 min + processing cron). Add force-refresh trigger alongside cron for immediate post-call flush.
+- **UniScript**: FastAPI + PostgreSQL + Redis. AI Gateway integrated via typed Python client (llm-core). MCP server with 10 tools, dual transport (HTTP + STDIO). Product telemetry with OpenTelemetry (12 counters + 5 histograms).
+- **IntelliRAG**: Exposed as MCP server — agents consume via MCP, same as any other tool. Sets precedent for all future capabilities.
+
+## Upcoming
+
+- **CX Ops floor session** — March 9. Required for roadmap finalization.
+- **Monday actions**: (1) Escalate 3 Helm gaps to Harsh. (2) Demo #96 with Upender. (3) Review #98 with Himanshu — likely Done. (4) Confirm #94 remaining 4 items with Nomaan. (5) Follow Pramod on global DB for #120. (6) Coordinate Ravinder on WABA (#108, due Mar 10).
 
 ---
 
@@ -99,7 +112,6 @@ Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh Monday.**
 
 ## Docs
 
-- **[Engineering Status](https://github.com/AIONOS-UNIWEAVE-PLATFORM/.github/blob/main/docs/STATUS.md)** — Detailed status with architecture notes and Monday actions
 - **[System Architecture](https://github.com/AIONOS-UNIWEAVE-PLATFORM/.github/blob/main/docs/system-architecture.md)** — Full platform — all 13 repos, data flows, deployment topology
 - **[Product Vision](https://github.com/AIONOS-UNIWEAVE-PLATFORM/.github/blob/main/docs/VISION.md)** — What we're building and how it fits together
 - **[Roadmap](https://github.com/AIONOS-UNIWEAVE-PLATFORM/.github/blob/main/docs/ROADMAP.md)** — Two-layer capability roadmap + April 23 milestone
