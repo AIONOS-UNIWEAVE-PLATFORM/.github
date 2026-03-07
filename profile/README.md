@@ -46,7 +46,7 @@ graph TB
 
 ## Current sprint snapshot
 
-**Last updated**: March 8, 2026
+**Last updated**: March 8, 2026 (session 32 deep sync)
 
 > **Phase shift**: Individual features are built or near-complete. The next major milestone is **integration + first unified Azure deployment** — merging all work, fixing production gaps, deploying as one platform, and setting up CI/CD.
 
@@ -55,7 +55,7 @@ graph TB
 | What | Owner | Due | Progress | Notes |
 |---|---|---|---|---|
 | Chat Engine (#94) | Nomaan | Mar 14 | **8/12** | Major progress — confirm remaining 4 items |
-| IntelliPulse post-call webhook (#96) | Upender | Mar 10 | **4/8** | Mode B (audio URL) built + tested locally. Blocked on Java routing (#122 — RTB, Upender+Harsh, due Mar 10). |
+| IntelliPulse post-call webhook (#96) | Upender | Mar 10 | **4/8** | Mode B (audio URL) built + tested locally. **Blocked on #122 (still in RTB — see escalation below).** |
 | IntelliRAG backend (#98) | Himanshu | Mar 10 | **11/11 ✅** | All done — pending Himanshu review to move to Done. |
 | Unified auth/SSO (#120) | Himanshu + Upender | Mar 12 | 0/5 | Waiting on Pramod (external) for global DB |
 | UniScript (#118) | Agam | — | **10/10 features built** | 155 tests passing. Portal testing. F11 (tool support) spec done, dev starting. |
@@ -73,9 +73,9 @@ All features above have been built individually. What's next:
 
 | What | Owner | Due | Blocker |
 |---|---|---|---|
-| Java routing fixes (#122) | Upender + Harsh | Mar 10 | Blocking #96 end-to-end. **2 days to deadline.** |
-| WABA provisioning (#108) | Ravinder | Mar 10 | Coordinating off-Trello. Blocks #95 + #113. **2 days to deadline.** |
-| PRISM Hotels (#113) | **TBD — unassigned** | Mar 10 | Depends on #94 + #95 + #108. Unassigned + 2 days. |
+| Java routing fixes (#122) | Upender + Harsh | Mar 10 | **⚠️ STILL IN READY TO BUILD — must move to In Progress today. Blocks #96 end-to-end. Deadline tomorrow.** |
+| WABA provisioning (#108) | Ravinder | Mar 10 | **⚠️ Deadline tomorrow. No Trello member assigned. Coordinating off-board. Blocks #95 + #113.** |
+| PRISM Hotels (#113) | **TBD — unassigned** | Mar 10 | **⚠️ Deadline tomorrow. No owner assigned.** Depends on #94 + #95 + #108. |
 | Pulse enrichment (#97) | **TBD — unassigned** | Mar 14 | Blocked by #96. Unassigned. |
 | WhatsApp connector (#95) | Nomaan | Mar 19 | WABA not provisioned (#108) |
 | IntelliRAG config UI (#99) | **TBD — unassigned** | — | Needs #98 review + Agam wireframes |
@@ -100,14 +100,14 @@ Surfaced from 13-repo architecture deep-dive. **Escalate to Harsh immediately.**
 
 ## Engineering notes
 
-- **IntelliPulse integration**: Mode B (audio URL to Pulse) built + tested locally — cron every 10 min + manual trigger endpoints. Mode A (transcript passthrough) + call-end event trigger still pending. #122 (Java routing) must land before #96 can be tested in any deployed environment.
+- **IntelliPulse integration**: Mode B (audio URL to Pulse) built + tested locally — cron every 10 min + manual trigger endpoints. Mode A (transcript passthrough) + call-end event trigger still pending. **#122 (Java routing) is STILL IN READY TO BUILD as of Mar 8 deep sync — both #96 and #122 due tomorrow (Mar 10). #122 must move to In Progress today.**
 - **UniScript**: 10/10 features built. FastAPI + PostgreSQL + Redis. AI Gateway integrated. MCP server (10 tools, dual transport). 155 tests passing. Portal built + testing. F11 (tool support) spec done, dev starting. **Repo: [uniscript](https://github.com/AIONOS-UNIWEAVE-PLATFORM/uniscript)** (renamed from voice-prompt-builder).
 - **IntelliRAG**: Exposed as MCP server — agents consume via MCP, same as any other tool. 11/11 checklist complete — v0.1 built by Himanshu. Pending review to move to Done. Auth (#120) blocked on Pramod (external).
 
 ## Upcoming
 
 - **CX Ops floor session** — March 9 (tomorrow). Required for roadmap finalization.
-- **Monday actions**: (1) Escalate 3 Helm gaps to Harsh — still not communicated. (2) Demo #96 with Upender — cron vs event trigger, force-refresh. (3) Move #98 to Done after Himanshu confirms deployable. (4) Confirm #94 remaining 4 items with Nomaan. (5) Follow Pramod on global DB for #120. (6) Coordinate Ravinder on WABA (#108, due Mar 10 — 2 days). (7) Assign owner for #97/#113/#104.
+- **Immediate actions**: (1) Escalate #122 to Harsh + Upender — must move to In Progress today. (2) Escalate 3 Helm gaps to Harsh — still not communicated. (3) Coordinate Ravinder on WABA (#108, due tomorrow). (4) Move #98 to Done after Himanshu confirms deployable. (5) Confirm #94 remaining 4 items with Nomaan. (6) Follow Pramod on global DB for #120. (7) Assign owner for #97/#113/#104.
 
 ---
 
